@@ -38,7 +38,8 @@ much of the following: graphics displays, basic optics, line drawing, affine and
 
 Describe how to install all development dependencies and how to run an automated test-suite of some kind. Potentially do this for multiple platforms.
 
-```mkdir build
+```
+mkdir build
 cd build
 cmake ..
 ```
