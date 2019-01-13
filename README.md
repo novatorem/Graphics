@@ -36,8 +36,6 @@ much of the following: graphics displays, basic optics, line drawing, affine and
 
 ## Development setup
 
-Describe how to install all development dependencies and how to run an automated test-suite of some kind. Potentially do this for multiple platforms.
-
 ```
 mkdir build
 cd build
