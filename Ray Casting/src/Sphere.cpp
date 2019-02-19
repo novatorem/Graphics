@@ -1,5 +1,7 @@
 #include "Sphere.h"
 #include "Ray.h"
+#include <algorithm>
+
 bool Sphere::intersect(
   const Ray & ray, const double min_t, double & t, Eigen::Vector3d & n) const
 {
