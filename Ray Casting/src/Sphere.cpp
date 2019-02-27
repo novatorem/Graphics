@@ -9,34 +9,34 @@ bool Sphere::intersect(
   Eigen::Vector3d e = ray.origin;
   Eigen::Vector3d c = center;
   
-  // construct linear system
+  // Construct a Linear System
   double A = d.dot(d);
   double B = 2 * d.dot(e - c);
   double C = (e - c).dot(e - c) - radius * radius;
   
   double discriminant = B * B - 4 * A * C;
   
-  // no soln
+  // No solution
   if(discriminant < 0){
     return false;
   }
-  // one soln
+  // One solution
   if(discriminant == 0){
     t = (-B) / (2 * A);
   }
-  // two soln
+  // Two solutions
   else{
     double t1 = (-B + sqrt(discriminant)) / (2 * A);
     double t2 = (-B - sqrt(discriminant)) / (2 * A);
     
-    // select the smaller solution above thresholds
+    // Select the smaller solution above thresholds
     t = std::min(t1, t2);
     if(t <= min_t){
       t = std::max(t1, t2);
     }
   }
   
-  // check t above thresholds
+  // Check t above thresholds
   if(t > min_t){
     n = (e + t * d - c) / radius;
     return true;
