@@ -10,7 +10,7 @@ bool write_ppm(
   const int height,
   const int num_channels)
 {
-// File initalization clause
+// File initialization clause
   std::ofstream file;
   file.open(filename, std::ios::out);
   if(!file){
