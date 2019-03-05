@@ -21,7 +21,7 @@ bool write_ppm(
   // PPM header
   file << "P3 " << '\n' << width << '\n' << height << '\n' << "255\n";
   
-  // loop through each pixel
+  // Go through every pixel
   for (int idx=0; idx<width*height; idx++){
     // rgb image
     if (num_channels == 3){
