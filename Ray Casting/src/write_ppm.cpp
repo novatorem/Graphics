@@ -22,22 +22,20 @@ bool write_ppm(
   file << "P3 " << '\n' << width << '\n' << height << '\n' << "255\n";
   
   // Go through every pixel
-  for (int idx=0; idx<width*height; idx++){
-    // rgb image
+  for (int index = 0; index < width * height; index++){
+    // RGB image
     if (num_channels == 3){
-      file << (int)data[idx*3] << ' ';
-      file << (int)data[idx*3 + 1] << ' ';
-      file << (int)data[idx*3 + 2] << ' ';
+      file << (int)data[index * 3] << ' ';
+      file << (int)data[index * 3 + 1] << ' ';
+      file << (int)data[index * 3 + 2] << ' ';
     }
     // grayscale image
-    else{
-      file << (int)data[idx] << ' ';
-      file << (int)data[idx] << ' ';
-      file << (int)data[idx] << ' ';
+    else {
+      file << (int)data[index] << ' ';
+      file << (int)data[index] << ' ';
+      file << (int)data[index] << ' ';
     }
   }
-  
-  // close the file
   file.close();
   return true;
 }
