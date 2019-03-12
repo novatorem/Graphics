@@ -29,7 +29,7 @@ bool write_ppm(
       file << (int)data[index * 3 + 1] << ' ';
       file << (int)data[index * 3 + 2] << ' ';
     }
-    // grayscale image
+    // Grayscale image
     else {
       file << (int)data[index] << ' ';
       file << (int)data[index] << ' ';
