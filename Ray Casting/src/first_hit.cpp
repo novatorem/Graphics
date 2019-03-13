@@ -8,18 +8,18 @@ bool first_hit(
   double & t,
   Eigen::Vector3d & n)
 {
-  // initialize
+  // Initialize
   bool hit = false;
   t = std::numeric_limits<double>::max();
   double curr_t;
   Eigen::Vector3d curr_n;
 
-  // loop through each object
+  // Loop through each object
   for (int i=0; i<objects.size(); i++){
-    // if such object intersect
+    // If such object intersect
     if(objects[i]->intersect(ray, min_t, curr_t, curr_n)){
       
-      // update if it's an earlier hit
+      // Update if it's an earlier hit
       if(curr_t < t){
         t = curr_t;
         hit = true;
