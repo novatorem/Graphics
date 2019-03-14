@@ -7,12 +7,12 @@ bool Plane::intersect(
   Eigen::Vector3d d = ray.direction;
   Eigen::Vector3d e = ray.origin;
   
-  // if parallel, no intersection
+  // Check parallel, if no: no intersection
   if(d.dot(normal) == 0){
     return false;
   }
   
-  // have intersection, calculate t
+  // Given the intersection, calculate `t`
   double temp_t = (point - e).dot(normal) / d.dot(normal);
   if(temp_t >= min_t){
     t = temp_t;
