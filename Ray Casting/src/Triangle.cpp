@@ -6,18 +6,18 @@
 bool Triangle::intersect(
   const Ray & ray, const double min_t, double & t, Eigen::Vector3d & n) const
 {
-  // traingle vertices
+  // Traingle vertices
   Eigen::Vector3d pa = std::get<0>(corners);
   Eigen::Vector3d pb = std::get<1>(corners);
   Eigen::Vector3d pc = std::get<2>(corners);
   
-  // find normal vector using vertices
+  // Find normal vector using vertices
   n = (pb - pa).cross(pc - pa).normalized();
   if(ray.direction.dot(n) == 0){
     return false;
   }
   
-  // construct linear system
+  // Construct linear system
   double a, b, c, d, e, f, g, h, i, j, k, l;
   
   a = pa[0] - pb[0];
@@ -34,7 +34,7 @@ bool Triangle::intersect(
   k = pa[1] - ray.origin[1];
   l = pa[2] - ray.origin[2];
   
-  // compute reuse terms
+  // Vompute reuse terms
   double ei_hf, gf_di, dh_eg, ak_jb, jc_al, bl_kc;
   
   ei_hf = e * i - h * f;
@@ -44,22 +44,22 @@ bool Triangle::intersect(
   jc_al = j * c - a * l;
   bl_kc = b * l - k * c;
   
-  // using Cramer's rule to solve linear systems
+  // Using Cramer's rule to solve linear systems
   double M = a * ei_hf + b * gf_di + c * dh_eg;
   
-  // compute t
+  // Compute t
   t = -(f * ak_jb + e * jc_al + d * bl_kc) / M;
   if(t < min_t){
     return false;
   }
   
-  // compute gamma
+  // Compute gamma
   double gamma = (i * ak_jb + h * jc_al + g * bl_kc) / M;
   if(gamma < 0 || gamma > 1){
     return false;
   }
   
-  // compute beta
+  // Compute beta
   double beta = (j * ei_hf + k * gf_di + l * dh_eg) / M;
   if(beta < 0 || beta > 1-gamma){
     return false;
