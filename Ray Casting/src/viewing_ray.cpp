@@ -8,20 +8,20 @@ void viewing_ray(
   const int height,
   Ray & ray)
 {
-  // origin
+  // Origin
   ray.origin = camera.e;
   
-  // edges
+  // Edges
   double r = 0.5 * camera.width;
   double l = -0.5 * camera.width;
   double t = -0.5 * camera.height;
   double b = 0.5 * camera.height;
   
-  // position u v
+  // Position u/v
   double u = l + (r - l) * (j + 0.5) / width;
   double v = b + (t - b) * (i + 0.5) / height;
   
-  // direction
+  // Direction
   ray.direction = - camera.d * camera.w + camera.u * u + camera.v * v;
 }
 
