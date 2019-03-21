@@ -13,7 +13,7 @@ bool Triangle::intersect(
   
   // Find normal vector using vertices
   n = (pb - pa).cross(pc - pa).normalized();
-  if(ray.direction.dot(n) == 0){
+  if(ray.direction.dot(n) == 0) {
     return false;
   }
   
@@ -49,19 +49,19 @@ bool Triangle::intersect(
   
   // Compute t
   t = -(f * ak_jb + e * jc_al + d * bl_kc) / M;
-  if(t < min_t){
+  if (t < min_t) {
     return false;
   }
   
   // Compute gamma
   double gamma = (i * ak_jb + h * jc_al + g * bl_kc) / M;
-  if(gamma < 0 || gamma > 1){
+  if (gamma < 0 || gamma > 1){
     return false;
   }
   
   // Compute beta
   double beta = (j * ei_hf + k * gf_di + l * dh_eg) / M;
-  if(beta < 0 || beta > 1-gamma){
+  if (beta < 0 || beta > 1-gamma){
     return false;
   }
   
